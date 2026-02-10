@@ -1,0 +1,115 @@
+/* =========================
+   Atomic Design: Tokens
+========================= */
+:root {
+  --color-primary: #1f3c88;
+  --color-secondary: #f1f5fb;
+  --color-accent: #f28c28;
+  --color-text: #222;
+  --color-muted: #666;
+  --font-heading: 'Arial', sans-serif;
+  --font-body: 'Verdana', sans-serif;
+  --max-width: 1100px;
+}
+
+/* =========================
+   Atomic: Base Elements
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-secondary);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  max-width: 65ch;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Atomic: Images
+========================= */
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* =========================
+   Molecules: Layout Blocks
+========================= */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+header {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 1.5rem 0;
+}
+
+header h1 {
+  color: white;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: white;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+}
+
+/* =========================
+   Molecules: Cards
+========================= */
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+/* =========================
+   Footer
+========================= */
+footer {
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
