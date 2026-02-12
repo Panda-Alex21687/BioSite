@@ -1,20 +1,21 @@
-/* =========================
-   Atomic Design: Tokens
-========================= */
+/* ================================================== */
+/* Atomic + Molecule CSS for Tyler Bettis bioSite    */
+/* ================================================== */
+
+/* ----------------- */
+/* 1. Color Palette  */
+/* ----------------- */
 :root {
-  --color-primary: #1f3c88;
-  --color-secondary: #f1f5fb;
-  --color-accent: #f28c28;
-  --color-text: #222;
-  --color-muted: #666;
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
-  --max-width: 1100px;
+  --primary: #1F3A5F;       /* Main color (dark blue) */
+  --secondary: #6C757D;     /* Secondary / gray */
+  --accent: #4DA8DA;        /* Buttons, highlights */
+  --background: #F5F7FA;    /* Page background */
+  --highlight: #F28C38;     /* Hover, emphasis */
 }
 
-/* =========================
-   Atomic: Base Elements
-========================= */
+/* ----------------- */
+/* 2. Global Styles  */
+/* ----------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,60 +23,98 @@
 }
 
 body {
-  font-family: var(--font-body);
-  color: var(--color-text);
-  background-color: var(--color-secondary);
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--background);
+  color: #333;
   line-height: 1.6;
+  font-size: 16px;
 }
 
-h1, h2, h3 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
+/* ----------------- */
+/* 3. Typography     */
+/* ----------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
   margin-bottom: 0.5rem;
 }
 
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
 p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
   margin-bottom: 1rem;
-  max-width: 65ch;
+  letter-spacing: 0.5px;
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--accent);
   text-decoration: none;
   font-weight: 600;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--highlight);
 }
 
-/* =========================
-   Atomic: Images
-========================= */
+/* ----------------- */
+/* 4. Buttons        */
+/* ----------------- */
+.btn {
+  background-color: var(--accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--highlight);
+}
+
+/* ----------------- */
+/* 5. Images         */
+/* ----------------- */
 img {
   max-width: 100%;
-  border-radius: 8px;
+  display: block;
+  border-radius: 12px;
 }
 
-/* =========================
-   Molecules: Layout Blocks
-========================= */
+/* ================================================== */
+/* Molecule Level Components                          */
+/* ================================================== */
+
+/* ----------------- */
+/* Navbar / Header    */
+/* ----------------- */
 header {
-  background-color: var(--color-primary);
+  background-color: var(--primary);
   color: white;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav {
-  max-width: var(--max-width);
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 nav h1 {
-  color: white;
+  font-size: 1.5rem;
 }
 
 nav ul {
@@ -86,63 +125,45 @@ nav ul {
 
 nav a {
   color: white;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 nav a:hover {
-  color: var(--color-accent);
+  color: var(--highlight);
 }
 
-section {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 4rem 2rem;
-}
-
-/* =========================
-   Molecules: Hero Section
-========================= */
+/* ----------------- */
+/* Hero Section       */
+/* ----------------- */
 .hero {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   align-items: center;
+  padding: 4rem 2rem;
 }
 
 .hero-text h2 {
   font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero-text p {
   font-size: 1.1rem;
-}
-
-.btn {
-  display: inline-block;
-  background-color: var(--color-accent);
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
-  font-weight: 600;
-}
-
-.btn:hover {
-  background-color: var(--color-primary);
-  text-decoration: none;
+  margin-bottom: 1.5rem;
 }
 
 .hero img {
   width: 300px;
   max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
   margin: 0 auto;
   display: block;
 }
 
-/* =========================
-   Molecules: Card Grid
-========================= */
+/* ----------------- */
+/* Card Component     */
+/* ----------------- */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -152,9 +173,9 @@ section {
 
 .card {
   background-color: white;
-  padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
   transition: transform 0.2s ease;
 }
 
@@ -162,61 +183,46 @@ section {
   transform: translateY(-5px);
 }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  margin-bottom: 1rem;
+.card-content {
+  padding: 1.5rem;
 }
 
 .card-content h3 {
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 0.5rem;
+  color: var(--primary);
 }
 
-/* =========================
-   Molecules: About Layout
-========================= */
+/* ----------------- */
+/* About Section      */
+/* ----------------- */
 .about-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2.5rem;
   align-items: start;
-}
-
-.about-layout img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  padding: 4rem 2rem;
 }
 
 .about-text h2 {
-  margin-bottom: 1rem;
-}
-
-.about-text p {
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .quote {
   font-style: italic;
-  color: var(--color-muted);
-  border-left: 4px solid var(--color-accent);
+  color: var(--secondary);
+  border-left: 4px solid var(--accent);
   padding-left: 1rem;
   margin-top: 1.5rem;
 }
 
-/* =========================
-   Footer
-========================= */
+/* ----------------- */
+/* Footer            */
+/* ----------------- */
 footer {
-  background-color: var(--color-primary);
+  background-color: var(--primary);
   color: white;
   text-align: center;
-  padding: 1.5rem;
-  margin-top: 3rem;
-}
-
-footer a {
-  color: var(--color-accent);
-  font-weight: 600;
+  padding: 2rem;
 }
