@@ -6,11 +6,11 @@
 /* 1. Color Palette  */
 /* ----------------- */
 :root {
-  --primary: #1F3A5F;       /* Main color (dark blue) */
-  --secondary: #6C757D;     /* Secondary / gray */
-  --accent: #4DA8DA;        /* Buttons, highlights */
-  --background: #F5F7FA;    /* Page background */
-  --highlight: #F28C38;     /* Hover, emphasis */
+  --primary: #1F3A5F;
+  --secondary: #6C757D;
+  --accent: #4DA8DA;
+  --background: #F5F7FA;
+  --highlight: #F28C38;
 }
 
 /* ----------------- */
@@ -28,6 +28,14 @@ body {
   color: #333;
   line-height: 1.6;
   font-size: 16px;
+}
+
+/* Page spacing for responsiveness */
+
+section {
+  padding: 0 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
 }
 
 /* ----------------- */
@@ -83,12 +91,46 @@ a:hover {
 }
 
 /* ----------------- */
-/* 5. Images         */
+/* 5. Images (Responsive + Borders) */
 /* ----------------- */
+
 img {
   max-width: 100%;
+  height: auto;
   display: block;
   border-radius: 12px;
+  border: 3px solid var(--secondary);
+}
+
+/* Card images */
+
+.card img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  border: 3px solid var(--secondary);
+  border-radius: 10px;
+}
+
+/* Hero portrait */
+
+.hero img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+  margin: 0 auto;
+  border: 4px solid var(--primary);
+}
+
+/* Image hover effect */
+
+.card img:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
 }
 
 /* ================================================== */
@@ -96,7 +138,7 @@ img {
 /* ================================================== */
 
 /* ----------------- */
-/* Navbar / Header    */
+/* Navbar / Header   */
 /* ----------------- */
 header {
   background-color: var(--primary);
@@ -111,6 +153,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 nav h1 {
@@ -133,14 +177,20 @@ nav a:hover {
 }
 
 /* ----------------- */
-/* Hero Section       */
+/* Hero Section      */
 /* ----------------- */
 .hero {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
   padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  max-width: 600px;
 }
 
 .hero-text h2 {
@@ -153,38 +203,36 @@ nav a:hover {
   margin-bottom: 1.5rem;
 }
 
-.hero img {
-  width: 300px;
-  max-width: 100%;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-  margin: 0 auto;
-  display: block;
-}
-
 /* ----------------- */
-/* Card Component     */
+/* Card Component    */
 /* ----------------- */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
   margin-top: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card {
   background-color: white;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  padding: 1.25rem;
+  text-align: center;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
 
 .card-content {
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .card-content h3 {
@@ -194,7 +242,7 @@ nav a:hover {
 }
 
 /* ----------------- */
-/* About Section      */
+/* About Section     */
 /* ----------------- */
 .about-layout {
   display: grid;
@@ -202,6 +250,8 @@ nav a:hover {
   gap: 2.5rem;
   align-items: start;
   padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-text h2 {
@@ -225,4 +275,5 @@ footer {
   color: white;
   text-align: center;
   padding: 2rem;
+  margin-top: 3rem;
 }
