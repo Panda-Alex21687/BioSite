@@ -31,7 +31,6 @@ body {
 }
 
 /* Page spacing for responsiveness */
-
 section {
   padding: 0 2rem;
   margin: 2rem auto;
@@ -88,12 +87,34 @@ a:hover {
 
 .btn:hover {
   background-color: var(--highlight);
+  color: white;
+}
+
+/* Back to Landing Page button */
+.back-link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 2000;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.back-link:hover {
+  background-color: var(--highlight);
+  color: white;
+  transform: translateY(-2px);
 }
 
 /* ----------------- */
 /* 5. Images (Responsive + Borders) */
 /* ----------------- */
-
 img {
   max-width: 100%;
   height: auto;
@@ -103,7 +124,6 @@ img {
 }
 
 /* Card images */
-
 .card img {
   width: 100%;
   max-width: 300px;
@@ -115,7 +135,6 @@ img {
 }
 
 /* Hero portrait */
-
 .hero img {
   width: 300px;
   max-width: 100%;
@@ -127,7 +146,6 @@ img {
 }
 
 /* Image hover effect */
-
 .card img:hover {
   transform: scale(1.03);
   transition: transform 0.3s ease;
@@ -159,6 +177,8 @@ nav {
 
 nav h1 {
   font-size: 1.5rem;
+  color: white;
+  margin-bottom: 0;
 }
 
 nav ul {
